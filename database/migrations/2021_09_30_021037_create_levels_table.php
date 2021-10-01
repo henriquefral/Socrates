@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWritingTable extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateWritingTable extends Migration
      */
     public function up()
     {
-        Schema::create('writing', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('content'); 
-            $table->string('color',20);
-            $table->dateTime('date'); // https://www.youtube.com/watch?v=MIN3g2OvIPQ
-            $table->string('image');
-
+            $table->text('description');
+            $table->interger('experience_required');
+            $table->timestampTz($precision = 0);
         });
     }
 
@@ -31,6 +28,6 @@ class CreateWritingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('writing');
+        Schema::dropIfExists('levels');
     }
 }
