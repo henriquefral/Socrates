@@ -9,5 +9,4 @@ class Exam extends Model
 {
     use HasFactory;
 
-    protected $dateTimes =['date'];
 }
