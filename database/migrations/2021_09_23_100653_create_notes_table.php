@@ -17,9 +17,8 @@ class CreateNotesTable extends Migration
             $table->id();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
-            $table->text('content'); 
+            $table->text('highlights'); 
             $table->dateTime('date'); // https://www.youtube.com/watch?v=MIN3g2OvIPQ
-            $table->string('image');
             $table->timestampTz($precision = 0);
         });
     }
