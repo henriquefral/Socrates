@@ -14,10 +14,9 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->interger('experience');
+            $table->integer('experience');
             $table->id();
             $table->string('name');
-            $table->integer('age');
             $table->string('cpf');
             $table->date('birth_date');
             $table->string('occupation');
@@ -27,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->timestampTz($precision = 0);
+            $table->timestamps();
         });
     }
 
