@@ -15,12 +15,18 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
             $table->string('title');
             $table->boolean('important');
-            $table->dateTime('date'); // https://www.youtube.com/watch?v=MIN3g2OvIPQ
-            $table->string('image');
-            $table->timestampTz($precision = 0);
+            $table->dateTime('date'); 
+            $table->timestamps();
+        });
+
+        Schema::table('tasks', function(Blueprint $table) {
+
         });
     }
 
@@ -31,7 +37,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        //Drop foreign key users.
-        Schema::dropIfExists('task');
+        Schema::dropIfExists('tasks');
     }
 }

@@ -15,14 +15,14 @@ class CreateExamsTable extends Migration
     {
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('teacher');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('applicator');
             $table->string('title');
             $table->boolean('important');
-            $table->string('component');
+            $table->string('category');
             $table->text("content");
             $table->dateTime('date');
-            $table->timestampTz($precision = 0);
+            $table->timestamps();
         });
     }
 

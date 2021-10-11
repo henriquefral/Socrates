@@ -15,11 +15,11 @@ class CreateNotesTable extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('title');
             $table->text('highlights'); 
-            $table->dateTime('date'); // https://www.youtube.com/watch?v=MIN3g2OvIPQ
-            $table->timestampTz($precision = 0);
+            $table->dateTime('date'); 
+            $table->timestamps();
         });
     }
 
