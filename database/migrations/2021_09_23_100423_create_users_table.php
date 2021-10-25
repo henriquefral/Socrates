@@ -37,7 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        //Drop foreign key users.
         Schema::dropIfExists('users');
     }
 }

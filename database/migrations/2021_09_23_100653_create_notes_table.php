@@ -15,7 +15,7 @@ class CreateNotesTable extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->text('highlights'); 
             $table->dateTime('date'); 
@@ -30,7 +30,9 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        //Drop foreign key users.
+        Schema::table('notes', function (Blueprint $table) {
+            $table->dropForeign('notes_user_id_foreign');
+        });
         Schema::dropIfExists('notes');
     }
 }

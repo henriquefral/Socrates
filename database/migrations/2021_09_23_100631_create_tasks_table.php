@@ -15,10 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->boolean('important');
             $table->dateTime('date'); 
@@ -37,6 +34,9 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropForeign('tasks_user_id_foreign');
+        });
         Schema::dropIfExists('tasks');
     }
 }

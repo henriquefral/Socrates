@@ -15,7 +15,7 @@ class CreateScrollsTable extends Migration
     {
         Schema::create('scrolls', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->timestamps();
         });
@@ -28,6 +28,9 @@ class CreateScrollsTable extends Migration
      */
     public function down()
     {
+        Schema::table('scrolls', function (Blueprint $table) {
+            $table->dropForeign('scrolls_user_id_foreign');
+        });
         Schema::dropIfExists('scrolls');
     }
 }

@@ -15,8 +15,8 @@ class CreateParchmentsTable extends Migration
     {
         Schema::create('parchments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('tome_id')->references('id')->on('scrolls');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('tome_id')->references('id')->on('scrolls')->onDelete('cascade');
             $table->string('category');
             $table->string('title');
             $table->longText('content'); 
@@ -32,6 +32,10 @@ class CreateParchmentsTable extends Migration
      */
     public function down()
     {
+        Schema::table('parchments', function (Blueprint $table) {
+            $table->dropForeign('parchments_user_id_foreign');
+            $table->dropForeign('parchments_tome_id_foreign');
+        });
         Schema::dropIfExists('parchments');
     }
 }

@@ -14,10 +14,7 @@ class AddLevelIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('level_id')
-            ->references('id')
-            ->on('levels')
-            ->onDelete('cascade');
+            $table->foreignId('level_id')->references('id')->on('levels')->onDelete('cascade');
         });
     }
 
@@ -29,7 +26,7 @@ class AddLevelIdToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('levels_level_id_foreign');
+            $table->dropForeign('users_level_id_foreign');
         });
     }
 }
