@@ -16,7 +16,7 @@ class CreateParchmentsTable extends Migration
         Schema::create('parchments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('tome_id')->references('id')->on('scrolls')->onDelete('cascade');
+            $table->foreignId('tome_id')->references('id')->on('tomes')->onDelete('cascade');
             $table->string('category');
             $table->string('title');
             $table->longText('content'); 

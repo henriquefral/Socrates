@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScrollsTable extends Migration
+class CreateTomesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateScrollsTable extends Migration
      */
     public function up()
     {
-        Schema::create('scrolls', function (Blueprint $table) {
+        Schema::create('tomes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
@@ -28,9 +28,9 @@ class CreateScrollsTable extends Migration
      */
     public function down()
     {
-        Schema::table('scrolls', function (Blueprint $table) {
-            $table->dropForeign('scrolls_user_id_foreign');
+        Schema::table('tomes', function (Blueprint $table) {
+            $table->dropForeign('tomes_user_id_foreign');
         });
-        Schema::dropIfExists('scrolls');
+        Schema::dropIfExists('tomes');
     }
 }

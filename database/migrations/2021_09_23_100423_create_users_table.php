@@ -37,6 +37,11 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        /*
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_level_id_foreign');
+        });
+        */
         Schema::dropIfExists('users');
     }
 }
