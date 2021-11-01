@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Parchment extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function tome()
+    {
+        return $this->belongsTo(Tome::class);
+    }
 }

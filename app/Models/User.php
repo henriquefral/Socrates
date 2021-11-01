@@ -25,8 +25,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'experience',
+        'cpf',
+        'birth_date',
+        'occupation',
         'email',
         'password',
+        'level_id',
     ];
 
     /**
@@ -35,7 +40,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        //'password',
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
@@ -54,8 +59,36 @@ class User extends Authenticatable
      * The accessors to append to the model's array form.
      *
      * @var array
-     */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+     *
+     * protected $appends = [
+     *   'profile_photo_url',
+     * ];
+    */
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
+
+    public function tome() 
+    {
+        return $this->hasOne(Tome::class);
+    }
+
+    public function task() 
+    {
+        return $this->hasOne(Task::class);
+    }
+    public function parchment() 
+    {
+        return $this->hasOne(Parchment::class);
+    }
+    public function note() 
+    {
+        return $this->hasOne(Note::class);
+    }
+    public function exam() 
+    {
+        return $this->hasOne(Exam::class);
+    }
 }
