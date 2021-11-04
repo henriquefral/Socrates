@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLevelsTable extends Migration
+class ChangeApplicatorToApplicantInUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateLevelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('levels', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->integer('experience_required');
-            $table->timestamps();
+        Schema::table('exams', function (Blueprint $table) {
+            $table->renameColumn('applicator', 'applicant');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateLevelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('levels');
+        Schema::table('exams', function (Blueprint $table) {
+            $table->renameColumn('applicant','applicator');
+        });
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotesTable extends Migration
+class CreateTomesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('tomes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
-            $table->text('highlights'); 
-            $table->dateTime('date'); 
             $table->timestamps();
         });
     }
@@ -30,9 +28,9 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        Schema::table('notes', function (Blueprint $table) {
-            $table->dropForeign('notes_user_id_foreign');
+        Schema::table('tomes', function (Blueprint $table) {
+            $table->dropForeign('tomes_user_id_foreign');
         });
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('tomes');
     }
 }

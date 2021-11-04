@@ -15,14 +15,14 @@ class CreateExamsTable extends Migration
     {
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('teacher');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('applicator');
             $table->string('title');
             $table->boolean('important');
-            $table->string('component');
+            $table->string('category');
             $table->text("content");
             $table->dateTime('date');
-            $table->timestampTz($precision = 0);
+            $table->timestamps();
         });
     }
 
@@ -33,7 +33,9 @@ class CreateExamsTable extends Migration
      */
     public function down()
     {
-        //Drop foreign key users.
+        Schema::table('exams', function (Blueprint $table) {
+            $table->dropForeign('exams_user_id_foreign');
+        });
         Schema::dropIfExists('exams');
     }
 }
