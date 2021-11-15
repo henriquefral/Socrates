@@ -26,7 +26,7 @@ Visando o php, com o php.ini configurado para tal, npm em seu sistema e um banco
      npm install 
      composer install
      ```
-- Crie uma database em seu banco de dados e configure ela em env.php. 
+- Crie uma database em seu banco de dados e configure ela em env.php. ***ALTERAR***
 - Execute as migrations através do seguinte comando: ``` php artisan migrate ```
 - Pronto. Pode iniciar sua jornada através no ``` php artisan serve ```
  
