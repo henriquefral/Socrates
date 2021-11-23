@@ -13,22 +13,27 @@ Para que você utilize o Sócrates, precisará de:
 
 - PHP => 7.3;
 - Banco de dados;
-- Pacote npm para instalar o vue.js e suas depdendências;
+- NPM;
 - Composer. 
 
 # Instalação
 
-Visando o php, com o php.ini configurado para tal, npm em seu sistema e um banco de dados em funcionamento. Realize os seguintes itens: 
-- Faça o download do projeto, baixando através do repositório GitHub (.zip)
-  - ou use o comando ``` git clone https://github.com/Gessilt/Socrates.git ```
-- Ao baixar requisite as dependências do projeto, através dos comandos:
-  -  ``` 
-     npm install 
-     composer install
-     ```
-- Crie uma database em seu banco de dados e configure ela em env.php. ***ALTERAR***
-- Execute as migrations através do seguinte comando: ``` php artisan migrate ```
-- Pronto. Pode iniciar sua jornada através no ``` php artisan serve ```
+Baixe ou clone esse repositório. Após, Realize os seguintes itens: 
+- Copie o .env.example e torne-o apenas um .env com as configurações da sua database; 
+- Depois disso, entre com algum comando de linha na pasta do projeto e digite: 
+```
+# Instala os pacotes do composer.
+composer install 
+
+# Cria a estrutura do banco de dados e preenche os níveis.
+php artisan migrate --seed
+
+# Inicia o servidor laravel
+php artisan serve
+
+``` 
+
+Você encontrará seu site funcionando em: 127.0.0.1:8080. No momento, sem página alguma.
  
  # Como utilizar
  #### Em desenvolvimento.
