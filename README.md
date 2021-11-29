@@ -1,4 +1,21 @@
-# Sócrates
+<h1 align="center">
+    <a> Sócrates </a>
+</h1>
+<p align="center"> Um site de autoajuda para autodesenvolvimento </p>
+
+Sumário
+=======
+
+<!--ts-->
+   * [Sobre](#sobre)
+   * [Requisitos](#requisitos)
+   * [Instalação](#instalação)
+   * [Como utilizar](#como-utilizar)
+<!--te-->
+
+
+Sobre
+=====
 O sócrates é um projeto construído em Laravel e Vue js para organização, com foco acadêmico. O Sócrates dá a possibilidade de organização, de forma fácil, para a vida de um aluno. Sejam benditos os eternos alunos da vida. Tem a intenção de armazenar: 
 - Anotações; 
 - Textos; 
@@ -7,8 +24,8 @@ O sócrates é um projeto construído em Laravel e Vue js para organização, co
 
 Para que quem utilize possa se desenvolver, assim como Sócrates se desenvolvia através do conhecimento de si e as interações consigo mesmo, de sua essência. Nada extravagante, simples e intuitivo.
 
-# Requisitos
-
+Requisitos
+==========
 Para que você utilize o Sócrates, precisará de: 
 
 - PHP => 7.3;
@@ -16,8 +33,8 @@ Para que você utilize o Sócrates, precisará de:
 - NPM;
 - Composer. 
 
-# Instalação
-
+Instalação
+==========
 Baixe ou clone esse repositório. Após, Realize os seguintes itens: 
 - Copie o .env.example e torne-o apenas um .env com as configurações da sua database; 
 - Depois disso, entre com algum comando de linha na pasta do projeto e digite: 
@@ -35,5 +52,6 @@ php artisan serve
 
 Você encontrará seu site funcionando em: 127.0.0.1:8080. No momento, sem página alguma.
  
- # Como utilizar
- #### Em desenvolvimento.
+ Como utilizar
+ =============
+ 	🚧  React Select 🚀 Em construção...  🚧
