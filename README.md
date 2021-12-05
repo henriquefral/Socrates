@@ -19,7 +19,7 @@ Sobre
 O sócrates é um projeto construído em Laravel e Vue js para organização, com foco acadêmico. O Sócrates dá a possibilidade de organização, de forma fácil, para a vida de um aluno. Sejam benditos os eternos alunos da vida. Tem a intenção de armazenar: 
 - Anotações; 
 - Textos; 
-- Lembretes de provas e;
+- Lembretes de provas;
 - Atividades.
 
 Para que quem utilize possa se desenvolver, assim como Sócrates se desenvolvia através do conhecimento de si e as interações consigo mesmo, de sua essência. Nada extravagante, simples e intuitivo.
