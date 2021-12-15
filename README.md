@@ -30,7 +30,7 @@ Para que você utilize o Sócrates, precisará de:
 
 - PHP => 7.3;
 - Banco de dados;
-- NPM;
+- [Ambiente Vue.js](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_getting_started#installation);
 - Composer. 
 
 Instalação
