@@ -5,7 +5,7 @@
             <label for = "name"> Seu nome: </label>
             <input type="text" placeholder="Seu nome" v-model="form.name" id="name" name="name">
             <label for = "cpf"> Seu CPF: </label>
-            <input type="text" placeholder="Ex.: 000.000.000-00" v-model="form.cpf" id="cpf" name="cpf">
+            <input type="text" placeholder="Ex.: 000.000.000-00" v-model="form.cpf" id="cpf" name="cpf" v-mask="'###.###.###-##'">
             <label for = "birthday"> Data de nascimento: </label>
             <input type="date"  placeholder="Sua data de nascimento" v-model="form.birthday" id="birthday" name="birthday">
             <label for = "occupation"> Você é: </label>
