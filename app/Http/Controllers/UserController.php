@@ -10,12 +10,14 @@ class UserController extends Controller
     public function register () {
         return Inertia::render('Registration');
     }
-
+    public function login () {
+        return Inertia::render('Login');
+    }
     public function store (Request $user) 
     {
         $user->validate([
             'name' => ['required'],
-            'cpf' => ['required', 'min:11', 'max:11'],
+            'cpf' => ['required', 'min:14', 'max:14'],
             'birthday' => ['required'],
             'occupation' => ['required'],
             'email' => ['required', 'min:5'],
