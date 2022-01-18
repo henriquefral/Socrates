@@ -8,11 +8,13 @@ require('./bootstrap');
 
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
+import VueMask from 'v-mask'
 
 createInertiaApp({
   resolve: name => require(`./Pages/${name}`),
   setup({ el, App, props, plugin }) {
     Vue.use(plugin)
+    Vue.use(VueMask);
 
     new Vue({
       render: h => h(App, props),
