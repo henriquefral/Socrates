@@ -15,8 +15,15 @@
             </select>
             <label for = "email"> Seu email: </label>
             <input type="text" placeholder="Seu email" v-model="form.email" id="email" name="email">
-            <label for = "password"> Sua senha: </label>
-            <input type="password" placeholder="Sua senha" v-model="form.password" id="password" name="password">
+            <div>
+                <label for = "password"> Sua senha: </label>
+                <input type="password" placeholder="Sua senha" v-model="form.password" id="password" name="password">
+                <label for = "password_confirmation"> Confirme sua senha: </label>
+                <input type="password" placeholder="Confirme sua senha" v-model="form.password_confirmation" id="password_confirmation" name="password_confirmation">
+                    <div v-if="form.password_confirmation != form.password">
+                        As senhas não são iguais.
+                    </div>
+            </div>
             <button type="submit"> Cadastrar </button>
         </form>    
     <div v-for="(error,index) in errors" :key="index">
@@ -41,7 +48,8 @@ export default {
                 birthday: null,
                 occupation: null,
                 email: null,
-                password: null
+                password: null,
+                password_confirmation: null,
             }
         }
     },
