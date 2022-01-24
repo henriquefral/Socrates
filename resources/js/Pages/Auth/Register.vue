@@ -25,7 +25,7 @@
         </div>
         <div class="mt-4">
             <BreezeLabel for="cpf" value="CPF" />
-            <BreezeInput id="cpf" type="text" class="mt-1 block w-full" v-model="form.cpf"/>
+            <BreezeInput id="cpf" type="text" class="mt-1 block w-full" v-model="form.cpf" />
         </div>  
         <div class="mt-4">
             <BreezeLabel for="birth_date" value="Data de nascimento" />
@@ -33,11 +33,14 @@
         </div>
         <div class="mt-4">
             <BreezeLabel for="occupation" value="Você é?" />
-            <BreezeInput id="occupation" type="text" class="mt-1 block w-full" v-model="form.occupation"/>
+            <select placeholder="occupation" v-model="form.occupation" class="mt-1 block w-full">
+                <option value="student"> Estudante </option>
+                <option value="teacher"> Professor </option>
+            </select>
         </div>
         <div class="flex items-center justify-end mt-4">
             <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Already registered?
+                Já é registrado?
             </Link>
 
             <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -54,6 +57,7 @@ import BreezeInput from '@/Components/Input.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3';
+
 
 export default {
     layout: BreezeGuestLayout,
