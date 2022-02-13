@@ -13,29 +13,7 @@ class UserController extends Controller
     public function login () {
         return Inertia::render('Login');
     }
-    public function store (Request $user) 
-    {
-        $user->validate([
-            'name' => ['required'],
-            'cpf' => ['required', 'min:14', 'max:14'],
-            'birthday' => ['required'],
-            'occupation' => ['required'],
-            'email' => ['required', 'min:5'],
-            'password' => ['required','min:3'],
-
-        ]);
-        
-        User::create([
-            'experience' => 1,
-            'name' => $user->name,
-            'cpf' => $user->cpf,
-            'birth_date' => $user->birthday,
-            'occupation' => $user->occupation,
-            'email'=> $user->email,
-            'password'=> bcrypt($user->password),
-            'level_id' => 1,
-        ]);
-
-        dd($user->all());
-    }    
+    public function dashboard () {
+        return Inertia::render('Dashboard');
+    }
 }
