@@ -7,6 +7,7 @@ use App\Http\Controllers\ParchmentController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TomeController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\UserController;
 
 
 /*
