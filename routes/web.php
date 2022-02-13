@@ -27,8 +27,4 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[UserController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('{any}', function() {
-    return view('app');
-})->where('any','.*');
-
 require __DIR__.'/auth.php';
