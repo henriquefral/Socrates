@@ -34,6 +34,8 @@
     "dependencies": {
         "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/inertia-vue": "^0.8.0",
-        "maska": "^1.5.0"
+        "maska": "^1.5.0",
+        "vue-axios": "^3.4.1",
+        "vue-router": "^4.0.12"
     }
 }
