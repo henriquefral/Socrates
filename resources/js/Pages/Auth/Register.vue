@@ -25,7 +25,7 @@
         </div>
         <div class="mt-4">
             <BreezeLabel for="cpf" value="CPF" />
-            <BreezeInput id="cpf" type="text" class="mt-1 block w-full" v-model="form.cpf" />
+            <BreezeInput id="cpf" type="text" class="mt-1 block w-full" v-model="form.cpf" v-maska="'###.###.###-##'" />
         </div>  
         <div class="mt-4">
             <BreezeLabel for="birth_date" value="Data de nascimento" />
@@ -57,7 +57,7 @@ import BreezeInput from '@/Components/Input.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3';
-
+import { maska } from 'maska';
 
 export default {
     layout: BreezeGuestLayout,
@@ -70,7 +70,9 @@ export default {
         Head,
         Link,
     },
-
+    directives: {
+        maska
+    },
     data() {
         return {
             form: this.$inertia.form({
