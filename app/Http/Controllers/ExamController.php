@@ -16,14 +16,14 @@ class ParchmentController extends Controller
     public function index()
     {
         $id = auth()->id();
-        $notes = Exam::all()->where('user_id', $id)->toArray();
-        return array_reverse($notes);
+        $exams = Exam::all()->where('user_id', $id)->toArray();
+        return array_reverse($exams);
     }
 
     public function store(Request $request) 
     {
         $id = auth()->id();
-        $note = new Exam ([
+        $exam = new Exam ([
             'user_id' => $id,
             'category' => $request->input('category'),
             'title' => $request->input('title'),
@@ -31,26 +31,26 @@ class ParchmentController extends Controller
             'content' => $request->input('content'),
             'date' => $request->input('date')
         ]);
-        $note->save();
+        $exam->save();
         return response()->json("Lembrete de exame criado.");
     }
 
     public function show ($id) 
     {
-        $note = Exam::find($id);
-        return response()->json($note);
+        $exam = Exam::find($id);
+        return response()->json($exam);
     }
 
     public function update ($id, Request $request) 
     {
-        $note = Exam::find($id);
-        $note->update($request->all());
+        $exam = Exam::find($id);
+        $exam->update($request->all());
         return response()->json("Lembrete de exame atualizado.");
     }
     public function destroy ($id) 
     {
-        $note = Exam::find($id);
-        $note->delete();
+        $exam = Exam::find($id);
+        $exam->delete();
         return response()->json("Lembrete de exame deletado.");
     }
 

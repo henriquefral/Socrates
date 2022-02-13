@@ -16,14 +16,14 @@ class ParchmentController extends Controller
     public function index()
     {
         $id = auth()->id();
-        $notes = Parchment::all()->where('user_id', $id)->toArray();
-        return array_reverse($notes);
+        $parchments = Parchment::all()->where('user_id', $id)->toArray();
+        return array_reverse($parchments);
     }
 
     public function store(Request $request) 
     {
         $id = auth()->id();
-        $note = new Parchment ([
+        $parchment = new Parchment ([
             'user_id' => $id,
             'tome_id' => $request->input('tome_id'),
             'category' => $request->input('category'),
@@ -31,26 +31,26 @@ class ParchmentController extends Controller
             'content' => $request->input('content'),
             'date' => $request->input('date')
         ]);
-        $note->save();
+        $parchment->save();
         return response()->json("Pergaminho criado.");
     }
 
     public function show ($id) 
     {
-        $note = Parchment::find($id);
-        return response()->json($note);
+        $parchment = Parchment::find($id);
+        return response()->json($parchment);
     }
 
     public function update ($id, Request $request) 
     {
-        $note = Parchment::find($id);
-        $note->update($request->all());
+        $parchment = Parchment::find($id);
+        $parchment->update($request->all());
         return response()->json("Pergaminho atualizado.");
     }
     public function destroy ($id) 
     {
-        $note = Parchment::find($id);
-        $note->delete();
+        $parchment = Parchment::find($id);
+        $parchment->delete();
         return response()->json("Pergaminho deletado.");
     }
 

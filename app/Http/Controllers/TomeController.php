@@ -16,37 +16,37 @@ class TomeController extends Controller
     public function index()
     {
         $id = auth()->id();
-        $notes = Tome::all()->where('user_id', $id)->toArray();
-        return array_reverse($notes);
+        $tomes = Tome::all()->where('user_id', $id)->toArray();
+        return array_reverse($tomes);
     }
 
     public function store(Request $request) 
     {
         $id = auth()->id();
-        $note = new Tome ([
+        $tome = new Tome ([
             'user_id' => $id,
             'title' => $request->input('title'),
         ]);
-        $note->save();
+        $tome->save();
         return response()->json("Tomo criado.");
     }
 
     public function show ($id) 
     {
-        $note = Tome::find($id);
-        return response()->json($note);
+        $tome = Tome::find($id);
+        return response()->json($tome);
     }
 
     public function update ($id, Request $request) 
     {
-        $note = Tome::find($id);
-        $note->update($request->all());
+        $tome = Tome::find($id);
+        $tome->update($request->all());
         return response()->json("Tomo atualizado.");
     }
     public function destroy ($id) 
     {
-        $note = Tome::find($id);
-        $note->delete();
+        $tome = Tome::find($id);
+        $tome->delete();
         return response()->json("Tomo deletado.");
     }
 
