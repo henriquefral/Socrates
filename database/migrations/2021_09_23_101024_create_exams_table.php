@@ -16,7 +16,7 @@ class CreateExamsTable extends Migration
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('applicator');
+            $table->string('applicant');
             $table->string('title');
             $table->boolean('important');
             $table->string('category');
